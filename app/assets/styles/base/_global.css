@@ -7,3 +7,12 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+* {
+	/*border-box = includes content, padding and border, but not the margin*/
+	box-sizing: border-box;
+}
+
+a {
+	color: $mainOrange;
+}
