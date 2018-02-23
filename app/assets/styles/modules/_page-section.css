@@ -9,4 +9,8 @@
 		background-color: $mainBlue;
 		color: #fff;
 	}
+
+	&--blue p {
+		font-weight: 300;
+	}
 }

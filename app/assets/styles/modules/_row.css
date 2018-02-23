@@ -9,14 +9,24 @@
 	&--gutters {
 		margin-right: -65px;
 	}
+
+	&--gutters-large {
+		margin-right: -100px;
+	}
+
 	&--gutters > div {
 		padding-right: 65px;
+	}
+
+	&--gutters-large > div {
+		padding-right: 100px;
 	}
 
 	/*adding bottom margin on small screens*/
 	&__b-margin-until-medium {
 		margin-bottom: 1rem;
 	}
+	
 
 
 	/*2 columns layout starting from medium size screens*/
@@ -31,14 +41,19 @@
 			width: 33.33%;
 		}
 
-		&__medium-8 {
-			float: left;
-			width: 66.66%;
-		}
-
 		/*adjusting column width to suit better to our design*/
 		&__medium-4--larger {
 			width: 37%;
+		}
+
+		&__medium-6 {
+			float: left;
+			width: 50%;
+		}
+
+		&__medium-8 {
+			float: left;
+			width: 66.66%;
 		}
 
 		&__medium-8--smaller {
