@@ -9,8 +9,38 @@
 		background-color: $mainBlue;
 		color: #fff;
 	}
-
+	
+	/*make blue section font a bit lighter*/
 	&--blue p {
 		font-weight: 300;
+	}
+	
+	&--no-b-padding-until-medium {
+
+		padding-bottom: 0;
+
+		@mixin atMedium {
+			padding-bottom: 4.5rem;
+		}
+	}
+
+	&--no-b-padding-until-large {
+
+		padding-bottom: 0;
+
+		@mixin atLarge {
+			padding-bottom: 4.5rem;
+		}
+	}
+
+	&--testimonials {
+
+		background-color: #e0e6ef;
+
+		@mixin atMedium {
+			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+			background-size: cover;
+		}
+		
 	}
 }
