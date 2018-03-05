@@ -1,0 +1,85 @@
+.site-header {
+	position: absolute;
+	padding: 10px 0;
+	width: 100%;
+	z-index: 2;
+	transition: background-color 0.3s ease-out;
+	
+	@mixin atMedium {
+		/* with postcss-hexrgba plugin hex-variables can be converted to rgb values */
+		background-color: rgba($mainBlue, 0.3);
+	}
+
+	&--is-expanded {
+		background-color: rgba($mainBlue, 0.3);
+	}
+
+	&__btn-container {
+		
+
+		@mixin atMedium {
+			float: right;
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) scale(0.8);
+		transform-origin: 50% 0;
+		background-color: $mainBlue;
+		padding: 25px 60px;
+
+		@mixin atMedium {
+			 left: auto;
+			 transform: translateX(0);
+		}
+	}
+
+	&__logo__graphic {
+		text-indent: -9999px;
+	}
+
+	&__menu-icon {
+		width: 20px;
+		height: 20px;
+		background-color: #fff;
+		position: absolute;
+		z-index: 10;
+		top: 10px;
+		right: 10px;
+
+		@mixin atMedium {
+			display: none;
+		}
+	}
+
+	&__menu-content {
+		/* instead of display none, use opacity to enable transition effect*/
+		opacity: 0;
+		transform: scale(0.9);
+		transition: all 0.3s ease-out;
+		/* to z-index work it needs rel pos */
+		position: relative;
+		z-index: -10;
+
+		padding-top: 90px;
+		text-align: center;
+
+		@mixin atMedium {
+			padding-top: 0;
+			z-index: 1;
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		&--is-visible {
+			opacity: 1;
+			z-index: 1;
+			transform: scale(1);
+		}
+	}
+
+	
+}
