@@ -1,7 +1,12 @@
 /*jshint esversion: 6 */ 
-// var $ = require('jquery');
 
 // after installing babel we can use es6 way to import code
 import MobileMenu from './modules/MobileMenu';
+import RevealOnScroll from './modules/RevealOnScroll';
+import $ from 'jquery';
 
 var mobileMenu = new MobileMenu();
+
+new RevealOnScroll($(".feature-item"), "80%");
+new RevealOnScroll($(".testimonial"), "60%");
+
