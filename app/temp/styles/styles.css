@@ -1049,11 +1049,17 @@ a {
 @media (min-width: 800px) {
 
 .site-header {
+		position: fixed;
+
 		/* with postcss-hexrgba plugin hex-variables can be converted to rgb values */
 		background-color: rgba(47,85,114, 0.3)
 
 	
 }
+
+		.site-header--dark {
+			background-color: rgba(47,85,114, 0.9);
+		}
 	}
 
 .site-header--is-expanded {
@@ -1084,8 +1090,17 @@ a {
 .site-header__logo {
 			 left: auto;
 			 -webkit-transform: translateX(0);
-			         transform: translateX(0)
+			         transform: translateX(0);
+			 transition: -webkit-transform 0.3s ease-out;
+			 transition: transform 0.3s ease-out;
+			 transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out
+
+			/* target .site-header__logo when dark header is being used */
 	}
+			 .site-header--dark .site-header__logo {
+				-webkit-transform: scale(0.55);
+				        transform: scale(0.55);
+			 }
 	}
 
 .site-header__logo__graphic {
@@ -1271,6 +1286,10 @@ a {
 			font-size: 1rem;
 			background-color: transparent
 	}
+
+			.primary-nav a.is-current-link {
+				color: #fabb69;
+			}
 	}
 
 .reveal-item {

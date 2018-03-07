@@ -6,9 +6,17 @@
 	transition: background-color 0.3s ease-out;
 	
 	@mixin atMedium {
+		position: fixed;
+
 		/* with postcss-hexrgba plugin hex-variables can be converted to rgb values */
 		background-color: rgba($mainBlue, 0.3);
+
+		&--dark {
+			background-color: rgba($mainBlue, 0.9);
+		}
 	}
+
+
 
 	&--is-expanded {
 		background-color: rgba($mainBlue, 0.3);
@@ -34,6 +42,12 @@
 		@mixin atMedium {
 			 left: auto;
 			 transform: translateX(0);
+			 transition: transform 0.3s ease-out;
+
+			/* target .site-header__logo when dark header is being used */
+			 .site-header--dark & {
+				transform: scale(0.55);
+			 }
 		}
 	}
 
