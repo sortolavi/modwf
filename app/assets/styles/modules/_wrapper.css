@@ -14,6 +14,10 @@
 		max-width: 976px;
 	}*/
 
+	&--narrow {
+		max-width: 470px;
+	}
+
 	&--w100 {
 		width: 100%;
 	}
