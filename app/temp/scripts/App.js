@@ -11319,6 +11319,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+// make some dom items visible with animation as user scrolls down the page
+// array items, procent offset (An offet of '80%' will trigger when the top of the element is 80% of the way from the top of the window, ie. 20% is left before the top of element is at top of window)
 var RevealOnScroll = function () {
 	function RevealOnScroll(items, offset) {
 		_classCallCheck(this, RevealOnScroll);
@@ -11390,6 +11392,9 @@ var StickyHeader = function () {
 	function StickyHeader() {
 		_classCallCheck(this, StickyHeader);
 
+		// lazyloading images
+		// this.lazyImages = $(".lazyload");
+
 		// target element
 		this.targetElem = (0, _jquery2.default)(".site-header");
 		// triggering effect when this elem reaches top of the screen
@@ -11405,7 +11410,15 @@ var StickyHeader = function () {
 		// run it
 		this.addSmoothScrolling();
 		this.createPageSectionWaypoints();
+		// this.refreshWaypoints();
 	}
+
+	// refresh waypoints each time when any lazy image is loaded
+	// refreshWaypoints() {
+	// 	this.lazyImages.on("load", function () {
+	// 		Waypoint.refreshAll();
+	// 	});
+	// }
 
 	// scroll smoothly to page sections, without this the move to link would be instant
 
@@ -11458,7 +11471,7 @@ var StickyHeader = function () {
 							(0, _jquery2.default)(matchingHeaderLink).addClass("is-current-link");
 						}
 					},
-					offset: "15%"
+					offset: "20%"
 				});
 
 				new Waypoint({
@@ -11903,6 +11916,7 @@ var Modal = function () {
 		key: "openModal",
 		value: function openModal() {
 			this.modal.addClass("modal--is-visible");
+			// abort normal click behavior in browser by returning false
 			return false;
 		}
 	}, {

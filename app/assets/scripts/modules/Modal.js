@@ -29,7 +29,8 @@ class Modal {
 
 	openModal() {
 		this.modal.addClass("modal--is-visible");
-		return false;
+		// abort normal click behavior in browser by returning false
+		return false; 
 	}
 
 	closeModal() {

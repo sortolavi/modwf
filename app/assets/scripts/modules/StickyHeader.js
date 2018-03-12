@@ -5,6 +5,9 @@ import smoothScroll from 'jquery-smooth-scroll';
 class StickyHeader {
 
 	constructor() {
+		// lazyloading images
+		// this.lazyImages = $(".lazyload");
+
 		// target element
 		this.targetElem = $(".site-header");
 		// triggering effect when this elem reaches top of the screen
@@ -20,7 +23,15 @@ class StickyHeader {
 		// run it
 		this.addSmoothScrolling();
 		this.createPageSectionWaypoints();
+		// this.refreshWaypoints();
 	}
+
+	// refresh waypoints each time when any lazy image is loaded
+	// refreshWaypoints() {
+	// 	this.lazyImages.on("load", function () {
+	// 		Waypoint.refreshAll();
+	// 	});
+	// }
 
 	// scroll smoothly to page sections, without this the move to link would be instant
 	addSmoothScrolling() {
@@ -63,7 +74,7 @@ class StickyHeader {
 						$(matchingHeaderLink).addClass("is-current-link");
 					}
 				},
-				offset: "15%"
+				offset: "20%"
 			});
 
 			new Waypoint({
