@@ -2,6 +2,11 @@ var gulp = require('gulp');
 var svgSprite = require('gulp-svg-sprite');
 var rename = require('gulp-rename');
 var config = {
+	// shape: {
+	// 	spacing: {
+	// 		padding: 1
+	// 	}
+	// },
 	mode: {
 		css: {
 			sprite: 'sprite.svg',
