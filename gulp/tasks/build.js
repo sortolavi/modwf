@@ -7,7 +7,7 @@ var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var browserSync = require('browser-sync').create();
 
-
+// open browser and show index in dist folder
 gulp.task('dist', function () {
 	browserSync.init({
 		notify: false,
@@ -18,11 +18,13 @@ gulp.task('dist', function () {
 });
 
 
+// delete old before processing 
 gulp.task('deleteDistFolder', function () {
 	return del("./dist");
 });
 
 
+// copy other files (if any) at app folder to dist folder
 gulp.task('copyGeneralFiles', ['deleteDistFolder'], function () {
 	var pathsToCopy = [
 		"./app/**/*",
@@ -37,7 +39,8 @@ gulp.task('copyGeneralFiles', ['deleteDistFolder'], function () {
 		.pipe(gulp.dest("./dist"));
 });
 
-// added to dependencies icons task (from sprite.js) to be sure that there are the latest versions to process
+
+// icons task (from sprite.js) added to dependencies to be sure that there are the latest versions to process
 gulp.task('optimizeImages', ['deleteDistFolder', 'icons'], function () {
 	return gulp.src(["./app/assets/images/**/*", "!./app/assets/images/icons", "!./app/assets/images/icons/**/*"])
 		.pipe(imagemin({
@@ -48,7 +51,8 @@ gulp.task('optimizeImages', ['deleteDistFolder', 'icons'], function () {
 		.pipe(gulp.dest("./dist/assets/images"));
 });
 
-// added to dependencies styles ja scripts tasks to be sure that there are the latest versions to process
+
+// styles ja scripts tasks added to dependencies to be sure that there are the latest versions to process
 gulp.task('usemin', ['deleteDistFolder', 'styles', 'scripts'], function () {
 	return gulp.src("./app/index.html")
 		.pipe(usemin({
@@ -58,5 +62,5 @@ gulp.task('usemin', ['deleteDistFolder', 'styles', 'scripts'], function () {
 		.pipe(gulp.dest("./dist"));
 });
 
-
+// run: gulp build
 gulp.task('build', ['deleteDistFolder', 'copyGeneralFiles', 'optimizeImages', 'usemin']);
